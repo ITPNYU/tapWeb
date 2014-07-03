@@ -1,0 +1,24 @@
+<div tap-header></div>
+
+<h3>Opportunities</h3>
+<p>Search: <input ng-model="query"> or <button class="btn btn-primary" data-toggle="modal" data-target="#opportunity-new-modal">Add Opportunity</button></p>
+<table class="table table-striped">
+  <thead>
+    <th><a ng-click="predicate='id'; reverse=!reverse">ID<a></a></th>
+    <th><a ng-click="predicate='name'; reverse=!reverse">Name</a></th>
+    <th>Note</th>
+    <th><a ng-click="predicate='modified_at'; reverse=!reverse">Last Modified</a></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="o in opportunities | filter:query | orderBy:predicate:reverse">
+      <td><a ng-href="#/opportunity/{{o.id}}">{{o.id}}</a></td>
+      <td>{{o.name}}</td>
+      <td>{{o.note | limitTo: 15}}</td>
+      <td>{{o.modified_at | date:'M/d/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div opportunity-add></div>
+
+<div tap-footer></div>

@@ -1,0 +1,24 @@
+<div tap-header></div>
+
+<h3>Providers</h3>
+<p>Search: <input ng-model="query"> or <button class="btn btn-primary" data-toggle="modal" data-target="#provider-new-modal">Add Provider</button></p>
+<table class="table table-striped">
+  <thead>
+    <th><a ng-click="predicate='id'; reverse=!reverse">ID<a></a></th>
+    <th><a ng-click="predicate='name'; reverse=!reverse">Name</a></th>
+    <th>Note</th>
+    <th><a ng-click="predicate='modified_at'; reverse=!reverse">Last Modified</a></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="p in providers | filter:query | orderBy:predicate:reverse">
+      <td><a ng-href="#/provider/{{p.id}}">{{p.id}}</a></td>
+      <td>{{p.name}}</td>
+      <td>{{p.note | limitTo: 15}}</td> <!-- FIXME: limitTo on strings? -->
+      <td>{{p.modified_at | date:'M/d/yyyy'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div provider-add></div>
+
+<div tap-footer></div>

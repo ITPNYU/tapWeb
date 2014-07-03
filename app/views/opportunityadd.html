@@ -1,0 +1,31 @@
+<div class="modal fade" id="opportunity-new-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Add Opportunity</h4>
+			</div><!-- .modal-header -->
+			<div class="modal-body">
+				<form role="form" ng-submit="Opportunity.save($scope.opportunity)">
+					<div class="form-group">
+						<label for="opportunity-name" class="control-label">Name</label>
+						<input type="text" id="opportunity-name" class="form-control" ng-model="opportunity.name" required>
+					</div>
+					<div class="form-group">
+						<label for="opportunity-url" class="control-label">URL</label>
+						<input type="text" id="opportunity-url" class="form-control" ng-model="opportunity.url">
+					</div>
+					<div class="form-group">
+						<label for="opportunity-note" class="control-label">Note</label>
+						<input type="text" id="opportunity-note" class="form-control" ng-model="opportunity.note">
+					</div>
+				</form>
+			</div><!-- .modal-body -->
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button opportunity-save>Save</button>
+		</div><!-- .modal-footer -->
+		</div><!-- .modal-content -->
+	</div><!-- .modal-dialog -->
+</div><!-- .modal -->
